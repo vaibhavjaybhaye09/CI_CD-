@@ -1,0 +1,17 @@
+services:
+ - type: web
+   name: django-web
+   env: python
+   plan : free
+   branch: main
+   buildCommand: './build.sh'
+   startCommand: 'gunicorn idk.wsgi:application'
+   envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: False
+        
+        
