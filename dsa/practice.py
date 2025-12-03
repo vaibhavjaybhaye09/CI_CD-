@@ -13,5 +13,14 @@ def ok(num):
     return original == num
 
 
-print(ok(num))
+# print(ok(num))
         
+def vs(st):
+    rev = ""
+    st = st.replace(" ","")
+    for i in st:
+        rev = i + rev
+    return rev
+
+
+print(vs("vaibhav pratiksha"))
