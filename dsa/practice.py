@@ -1,12 +1,17 @@
-num = [1,2,3,4,5]
+n = 1111
+
+num = n
 
 def ok(num):
-    rev = 0
-    for n in num :
-        n = num[]
- 
-       
-    
+    original = 0 
+
+    while num > 0 :
+        lsd =  num % 10
+        original = (original * 10) + lsd
+        num = num % 10
+
+    return original == num
 
 
 print(ok(num))
+        
