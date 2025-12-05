@@ -1,12 +1,19 @@
 
 
 def vok(ls):
-    y =[]
-
+   
+    m = 0
+    k = []
+    all = []
     for i in ls:
-       y.append(i)
-    print(y[::-1])
-    
+       m = i * i 
+       k.append(m)
+       all.append(i,m)
+       
+    print(k)
+    print(ls[::-1])
+
+        
 
 
-print(vok(ls = [1,3,3,454,5]))
+print(vok(ls = [1,2,3,4,5,6,6]))
