@@ -1,5 +1,7 @@
-class Solution:
-    def sol(self, nums):
+
+
+class solution:
+    def sol(self,nums):
         w = 0
         for i in range(len(nums)):
             if nums[i] != 0:
@@ -8,6 +10,6 @@ class Solution:
         return nums
 
 
-nums = [0, 2, 335, 0, 56, 43, 0]
-d = Solution()
+nums = [0,2,335,0,56,43,0]
+d = solution()
 print(d.sol(nums))
