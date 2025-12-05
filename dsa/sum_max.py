@@ -5,7 +5,7 @@ class Solution:
         ind = digits.index(max_d)
         
         digits[ind] = max_d + 1
-        digits = list(map(int,str(ind)))
+        # digits = list(map(int,str(ind)))
         
         return digits 
 
