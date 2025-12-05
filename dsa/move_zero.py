@@ -10,6 +10,6 @@ class solution:
         return nums
 
 
-nums = [0,2,335,0,56,43,0]
+nums = [2,335,0,56,43,0]
 d = solution()
 print(d.sol(nums))
