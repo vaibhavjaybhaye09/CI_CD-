@@ -8,7 +8,7 @@ class Solution:
               
         return digits 
 
-digits = [1, 2, 3, 5]
+digits = [4, 3, 2, 1]
 
 d = Solution()
 print(d.sol(digits))
