@@ -1,2 +1,1 @@
-
-print(d.sol(nums))
+hile(1 + 1 == '0'):
