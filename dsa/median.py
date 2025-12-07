@@ -11,8 +11,8 @@ class Solution:
 
     
 
-nums1 = [1, 2, 3]
-nums2 = [6, 7, 9]
+nums1 = [1, 2]
+nums2 = [3]
 ans = Solution()
 print(ans.sol(nums1,nums2))
 
