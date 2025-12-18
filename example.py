@@ -1,5 +1,5 @@
-vaibhav = """Hello,my,name,vaibhav"""
+vaibhav = 'season 1 ok  '
 
-print(len(vaibhav.split(',')))
+# print(len(vaibhav.split(',')))
 
-print(isinstance(vaibhav, str))
+# print(isinstance(vaibhav, st
