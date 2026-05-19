@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Vaibhav | Portfolio</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">Vaibhav</div>
+        <ul class="nav-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#experience">Experience</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="index.html#skills">Skills</a></li>
+            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="index.html#certifications">Certifications</a></li>
+        </ul>
+    </nav>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-page">
+        <h2>Get In Touch</h2>
+        <p class="contact-subtitle">I'm currently looking for new opportunities. Whether you have a question or just
+            want to say hi, I'll try my best to get back to you!</p>
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <div class="info-item">
+                    <strong>Email:</strong>
+                    <a href="mailto:jaybhayevaibhav162@gmail.com">jaybhayevaibhav162@gmail.com</a>
+                </div>
+                <div class="info-item">
+                    <strong>Phone:</strong>
+                    <a href="tel:+919356889170">+91-9356889170</a>
+                </div>
+                <div class="info-item">
+                    <strong>LinkedIn:</strong>
+                    <a href="https://linkedin.com/in/vaibhav-jaybhaye-a9a10b25b"
+                        target="_blank">linkedin.com/in/vaibhav-jaybhaye</a>
+                </div>
+                <div class="info-item">
+                    <strong>GitHub:</strong>
+                    <a href="https://github.com/vaibhavjaybhaye09" target="_blank">github.com/vaibhavjaybhaye09</a>
+                </div>
+            </div>
+
+            <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" id="contactForm">
+                <!-- IMPORTANT: Paste your Web3Forms Access Key below -->
+                <input type="hidden" name="access_key" value="294617a3-1fa6-44e2-b9c3-9f8d4cc25325">
+
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="text" name="subject" placeholder="Subject" required>
+                <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2025 Vaibhav Jaybhaye | Portfolio</p>
+    </footer>
+
+    <script>
+        // Navbar Scroll Logic
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('.navbar');
+
+        window.addEventListener('scroll', function () {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                navbar.classList.add('hidden');
+            } else {
+                navbar.classList.remove('hidden');
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+
+        // Contact Form AJAX Submission using Web3Forms
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const btn = contactForm.querySelector('button');
+                const originalBtnText = btn.innerText;
+                btn.innerText = 'Sending...';
+                btn.disabled = true;
+
+                fetch(contactForm.action, {
+                    method: "POST",
+                    body: new FormData(contactForm)
+                })
+                    .then(async (response) => {
+                        let json = await response.json();
+                        if (response.status == 200) {
+                            alert('Message sent successfully!');
+                            contactForm.reset();
+                        } else {
+                            if (json.message.includes("Invalid Access Key")) {
+                                alert("DEVELOPER ACTION REQUIRED: You need to put your Web3Forms Access Key in the HTML code where it says 'YOUR_ACCESS_KEY_HERE'.");
+                            } else {
+                                alert('Oops! ' + (json.message || 'There was a problem submitting your form.'));
+                            }
+                        }
+                    })
+                    .catch(error => {
+                        alert('Oops! There was a problem submitting your form.');
+                    })
+                    .finally(() => {
+                        btn.innerText = originalBtnText;
+                        btn.disabled = false;
+                    });
+            });
+        }
+    </script>
+</body>
+
+</html>
