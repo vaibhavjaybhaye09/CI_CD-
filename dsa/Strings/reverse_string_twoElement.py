@@ -1,13 +1,17 @@
-n  = 2201
-num = n
-m = 0
-c = len(str(num))- 1
-while m > c :
-    temp = num[m]
-    num[m]= num[c]
-    num[c] = temp
-    m = m+1
-    c= c-1
-    print("".join(num))
+# arr = [1, 2, 3, 4, 5, 6]
+num = 'vaibhav'
+arr = list(num)
 
 
+def arr_rev(arr):
+
+    m = 0
+    c = len(arr)-1
+
+    while m <= c:
+        arr[m], arr[c] =  arr[c], arr [m]
+        m+=1
+        c-=1
+    return "".join(arr)
+
+print(arr_rev(arr))
