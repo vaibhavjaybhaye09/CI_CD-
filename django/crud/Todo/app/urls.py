@@ -1,8 +1,10 @@
-from .views import TodoVIewset
-from rest_framework.router import DfaultRouter
+from .views import PuneWeatherAPIView
 
+from django.urls import path
 
-router = DefaultRouter()
-router.register('api/todo', TodoVIewset, basename= 'todo')
+# router = DefaultRouter()
+# router.register('api/weather/', PuneWeatherAPIView.as_view(), name= 'pune')
 
-urlpatterns = router.urls
+urlpatterns = [
+    path('api/weather/', PuneWeatherAPIView.as_view(), name ='pune'),
+]
